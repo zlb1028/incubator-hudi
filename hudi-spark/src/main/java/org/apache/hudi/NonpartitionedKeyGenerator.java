@@ -37,9 +37,9 @@ public class NonpartitionedKeyGenerator extends SimpleKeyGenerator {
 
   @Override
   public HoodieKey getKey(GenericRecord record) {
-    String recordKey = DataSourceUtils.getNullableNestedFieldValAsString(record, recordKeyField);
+    String recordKey = DataSourceUtils.getNullableNestedFieldValAsString(record, recordKeyFields.get(0));
     if (recordKey == null || recordKey.isEmpty()) {
-      throw new HoodieKeyException("recordKey value: \"" + recordKey + "\" for field: \"" + recordKeyField + "\" cannot be null or empty.");
+      throw new HoodieKeyException("recordKey value: \"" + recordKey + "\" for field: \"" + recordKeyFields.get(0) + "\" cannot be null or empty.");
     }
     return new HoodieKey(recordKey, EMPTY_PARTITION);
   }

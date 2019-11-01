@@ -24,6 +24,8 @@ import org.apache.hudi.exception.HoodieKeyException;
 
 import org.apache.avro.generic.GenericRecord;
 
+import java.util.Arrays;
+
 /**
  * Simple key generator, which takes names of fields to be used for recordKey and partitionPath as configs.
  */
@@ -39,6 +41,9 @@ public class SimpleKeyGenerator extends KeyGenerator {
     super(props);
     this.recordKeyField = props.getString(DataSourceWriteOptions.RECORDKEY_FIELD_OPT_KEY());
     this.partitionPathField = props.getString(DataSourceWriteOptions.PARTITIONPATH_FIELD_OPT_KEY());
+    this.recordKeyFields = Arrays.asList(props.getString(DataSourceWriteOptions.RECORDKEY_FIELD_OPT_KEY()));
+    this.partitionPathFields = Arrays.asList(props
+        .getString(DataSourceWriteOptions.PARTITIONPATH_FIELD_OPT_KEY()));
   }
 
   @Override
