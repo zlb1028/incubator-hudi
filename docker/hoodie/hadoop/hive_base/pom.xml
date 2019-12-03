@@ -62,8 +62,8 @@
                   file="${project.basedir}/../../../../packaging/hudi-utilities-bundle/target/hudi-utilities-bundle-${project.version}.jar"
                   tofile="target/hoodie-utilities.jar"/>
                 <copy
-                  file="${project.basedir}/../../../../packaging/hudi-bench-bundle/target/hudi-bench-bundle-${project.version}.jar"
-                  tofile="target/hoodie-bench-bundle.jar"/>
+                  file="${project.basedir}/../../../../packaging/hudi-end-to-end-tests-bundle/target/hudi-end-to-end-tests-bundle-${project.version}.jar"
+                  tofile="target/hoodie-end-to-end-tests-bundle.jar"/>
               </tasks>
             </configuration>
             <goals>
