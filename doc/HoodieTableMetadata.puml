@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface HoodieTableMetadata extends Serializable, AutoCloseable{
+ + FileStatus[] getAllFilesInPartition(Path partitionPath) throws IOException;
+ + List<String> getAllPartitionPaths() throws IOException;
+ + Map<String, FileStatus[]> getAllFilesInPartitions(List<String> partitionPaths) throws IOException;
+ + Option<String> getSyncedInstantTime();
+ + Option<String> getLatestCompactionTime();
+}
+
+abstract class BaseTableMetadata{
+
+}
+
+class HoodieBackedTableMetadata{
+
+}
+
+HoodieTableMetadata <|.. BaseTableMetadata
+BaseTableMetadata <|-- HoodieBackedTableMetadata
+
+@enduml
